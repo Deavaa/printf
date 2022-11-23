@@ -9,10 +9,21 @@ int _printf(const char *format, ...)
 {
 	int i;
 	
-	convert_special_char list[] = { 
-		{"c", _char}, {"i", _integer}, {"d", _integer}, {"s", _string}, {"u", _unassigned},
-		{"b", _binary}, {"x", _hexdec}, {"o", _octal}, {"p", _pointer}, {"r", _reverse},
-		{"R", _rot13}, {"%", _persent}, {NULL, NULL},};
+	convert_special_char ch_list[] = { 
+		{"c", _char},
+		{"i", _integer},
+		{"d", _integer},
+		{"s", _string},
+		{"u", _unassigned},
+		{"b", _binary},
+		{"x", _hexdec},
+		{"o", _octal},
+		{"p", _pointer},
+		{"r", _reverse},
+		{"R", _rot13},
+		{"%", _persent},
+		{NULL, NULL},
+	};
 
 	va_list arg_list;
 
@@ -23,7 +34,7 @@ int _printf(const char *format, ...)
 	else
 	{
 		va_start(arg_list, format);
-		i = format_reciver(format, list, arg_list);
+		i = format_reciver(format, ch_list, arg_list);
 		va_end(arg_list);
 		return (i);
 }

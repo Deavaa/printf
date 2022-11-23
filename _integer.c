@@ -8,7 +8,7 @@
 
 int _integer(va_list l)
 {
-	inti;
+	int i;
 
 	i = _number(l);
 	return (i);

@@ -20,7 +20,7 @@ struct convert
 	int (*f)(va_list);
 };
 
-typedef struct convert convert_t;
+typedef struct convert convert_special_char;
 
 int _printf(const char *format, ...);
 int _putchar(char ch);

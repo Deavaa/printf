@@ -28,7 +28,7 @@ int _number(va_list args)
 
 	n = va_arg(args, int);
 	d = 1;
-	len = 0;
+	i = 0;
 
 	if (n < 0)
 	{

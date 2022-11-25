@@ -7,34 +7,33 @@
 
 int _printf(const char *format, ...)
 {
-	int i;
-	
-	convert_special_char ch_list[] = { 
-		{"c", _char},
-		{"i", _integer},
-		{"d", _integer},
-		{"s", _string},
-		{"u", _unassigned},
-		{"b", _binary},
-		{"x", _hexdec},
-		{"o", _octal},
-		{"p", _pointer},
-		{"r", _reverse},
-		{"R", _rot13},
-		{"%", _persent},
+	int printed_chars;
+	conver_t f_list[] = {
+		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"c", print_char},
+		{"s", print_string},
+		{"b", print_binary},
+		{"u", print_unsigned_integer},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_HEX},
+		{"S", print_String},
+		{"p", print_pointer},
+		{"r", print_rev},
+		{"R", print_rot13},
 		{NULL, NULL},
 	};
-
 	va_list arg_list;
 
 	if (format == NULL)
 	{
 		return (-1);
 	}
-	else
-	{
-		va_start(arg_list, format);
-		i = format_reciver(format, ch_list, arg_list);
-		va_end(arg_list);
-		return (i);
+	va_start(arg_list, format);
+	printed_chars = format_reciever(format, f_list, arg_list);
+	va_end(arg_list);
+	return (printed_chars);
 }
+
